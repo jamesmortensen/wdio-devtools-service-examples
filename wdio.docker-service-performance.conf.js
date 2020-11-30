@@ -1,4 +1,5 @@
-// wdio.docker-headful.config.js
+// wdio.docker-service-performance.conf.js
+
 const reporter = require('@wdio/allure-reporter').default;
 /*
  This configuration runs in docker, headlessly, for the purpose
@@ -23,28 +24,28 @@ config.override = {
     host: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    //automationProtocol: 'webdriver',
+    // automationProtocol: 'webdriver',
     capabilities: [{
         maxInstances: 1,
         browserName: 'chrome',
         'goog:chromeOptions': {
-             args: [   // required for devtools metrics
-               '--remote-debugging-port=9222',
-               '--remote-debugging-host=0.0.0.0',
+            args: [   // first 3 required for devtools metrics
+                '--remote-debugging-port=9222',
+                '--remote-debugging-host=0.0.0.0',
                 '--headless',
                 '--disable-setuid-sandbox',
-   '--disable-background-networking',
-   '--disable-default-apps',
-   '--disable-extensions',
-   '--disable-gpu',
-   '--disable-sync',
-   '--disable-translate',
-   '--hide-scrollbars',
-   '--metrics-recording-only',
-   '--mute-audio',
-   '--no-first-run',
-   '--safebrowsing-disable-auto-update'
-             ]
+                '--disable-background-networking',
+                '--disable-default-apps',
+                '--disable-extensions',
+                '--disable-gpu',
+                '--disable-sync',
+                '--disable-translate',
+                '--hide-scrollbars',
+                '--metrics-recording-only',
+                '--mute-audio',
+                '--no-first-run',
+                '--safebrowsing-disable-auto-update'
+            ]
         }
     }],
     sync: true,

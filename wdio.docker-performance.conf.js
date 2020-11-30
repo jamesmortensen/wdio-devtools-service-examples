@@ -1,4 +1,5 @@
-// wdio.docker-headful.config.js
+// wdio.docker-performance.conf.js
+
 const reporter = require('@wdio/allure-reporter').default;
 /*
  This configuration runs in docker, but headfully, meaning not headless.
@@ -36,33 +37,28 @@ config.override = {
         maxInstances: 1,
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: [
+            args: [   // first 3 required for devtools metrics
                 '--remote-debugging-port=9222',
                 '--remote-debugging-host=0.0.0.0',
-                '--headless' 
+                '--headless',
+                '--disable-setuid-sandbox',
+                '--disable-background-networking',
+                '--disable-default-apps',
+                '--disable-extensions',
+                '--disable-gpu',
+                '--disable-sync',
+                '--disable-translate',
+                '--hide-scrollbars',
+                '--metrics-recording-only',
+                '--mute-audio',
+                '--no-first-run',
+                '--safebrowsing-disable-auto-update'
             ]
         }
     }],
     sync: true,
     logLevel: 'info',
     services: [['devtools', { 'debuggerAddress': '127.0.0.1:9222' }]],
-    dockerLogs: './',
-    dockerOptions: {
-        image: 'selenium/standalone-chrome-debug',
-        healthCheck: {
-            url: 'http://localhost:4444',
-            maxRetries: 10,            // default 10
-            inspectInterval: 1000,     // default 500ms
-            startDelay: 2000           // default 0ms
-        },
-        options: {
-            p: ['4444:4444', '5900:5900', '9222:9222'],
-            shmSize: '3g',
-            v: [process.cwd() + ':' + process.cwd() + ':ro'],
-            expose: '9222',
-
-        }
-    },
     beforeTest: function (test, context) {
         const reporter = require('@wdio/allure-reporter').default;
         reporter.addEnvironment('WDIO config filename', process.argv[2]);
