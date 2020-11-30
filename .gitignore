@@ -1,0 +1,78 @@
+# Google App Engine generated folder
+appengine-generated/
+allure-report
+allure-results
+errorShots
+node_modules
+
+
+.DS_Store
+*.swp
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.gradle
+/build/
+/bin/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+target/
+test-output/
+testng.xml/
+config.properties/
+*.xml
+*.html
+*.xml
+*.html
+deployment.xml
+
+# Don't ignore - From npm logs:
+# - npm notice created a lockfile as package-lock.json. You should commit this file.
+!/package-lock.json
+/package-lock.json
+
+
+# user-specific configuration files
+_wdio.*.js
+
+
+# localStorage module scratch folder
+scratch/
+
+# Docker files
+*.cid
+docker-log.txt
+
+# wdio multi-run temp folder
+.temp

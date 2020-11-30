@@ -1,0 +1,28 @@
+#!/bin/bash
+# Flags required for devtools metrics
+# Note: exec -a below is a bashism.
+# exec -a "$0" "/opt/google/chrome/google-chrome-base" \
+#     --no-sandbox \
+#     --remote-debugging-port=9222 \
+#     --remote-debugging-address=0.0.0.0 \
+# "$@"
+
+
+exec -a "$0" "/opt/google/chrome/google-chrome-base" \
+    --no-sandbox \
+    --headless \
+    --disable-setuid-sandbox \
+    --disable-background-networking \
+    --disable-default-apps \
+    --disable-extensions \
+    --disable-gpu \
+    --disable-sync \
+    --disable-translate \
+    --hide-scrollbars \
+    --metrics-recording-only \
+    --mute-audio \
+    --no-first-run \
+    --safebrowsing-disable-auto-update \
+    --remote-debugging-port=9222 \
+    --remote-debugging-address=0.0.0.0 \
+"$@"
